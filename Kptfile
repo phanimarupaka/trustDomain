@@ -4,3 +4,28 @@ metadata:
   name: arraysetters
 packageMetadata:
   shortDescription: sample description
+openAPI:
+  definitions:
+    io.k8s.cli.setters.trust-domains:
+      items:
+        pattern: '[A-Za-z0-9_].svc.id.goog'
+        type: string
+      minItems: 1
+      type: array
+      x-k8s-cli:
+        setter:
+          name: trust-domains
+          value: ""
+    io.k8s.cli.substitutions.trust-domain-sub:
+      x-k8s-cli:
+        substitution:
+          name: trust-domain-sub
+          pattern: ${gcloud.core.project}.svc.id.goog
+          values:
+          - marker: ${gcloud.core.project}
+            ref: '#/definitions/io.k8s.cli.setters.gcloud.core.project'
+    io.k8s.cli.setters.gcloud.core.project:
+      x-k8s-cli:
+        setter:
+          name: gcloud.core.project
+          value: PROJECT_ID

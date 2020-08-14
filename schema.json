@@ -3,6 +3,6 @@
   "minItems": 1, 
   "items": {
     "type": "string",
-    "pattern": "[^(?!\s*$).+].svc.id.goog" 
+    "pattern": "[A-Za-z0-9_].svc.id.goog" 
   }
 }

@@ -1,5 +1,5 @@
 apiVersion: install.istio.io/v1alpha1
 kind: IstioOperator
 spec:
-  trustDomain:
-  - "PROJECT_ID.svc.id.goog"
+  trustDomain: # {"$kpt-set":"trust-domains"}
+  - "PROJECT_ID.svc.id.goog" # {"$kpt-set":"trust-domain-sub"}
